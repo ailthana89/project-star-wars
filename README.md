@@ -1,7 +1,7 @@
 # Projeto Star Wars
 ## Projeto de consumo da API do Star Wars
 
-###Requisitos do projeto:
+## Requisitos do projeto:
 
 - API REST
 
@@ -12,7 +12,7 @@
 - Para cada planeta também devemos ter a quantidade de aparições em filmes, que podem ser obtidas pela API pública do Star Wars: https://swapi.dev/about
 
 
-###Funcionalidades:
+## Funcionalidades:
 
 - Adicionar um planeta com nome, clima e terreno
 
@@ -23,6 +23,8 @@
 - Buscar por ID
 
 - Remover planeta
+
+###
 
 
 > May the force be with you! 
