@@ -1,66 +1,98 @@
 package com.project.api.starwars.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.util.Objects;
 
 
 @Entity
-@Table(name = "tb_planet")
+@Table(name = "planetas")
 public class Planeta {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
-    private String Name;
-    private String Clima;
-    private String Terrano;
+    private Long id;
+    private String nome;
+    @Column(nullable = false)
+    private String clima;
+    @Column(nullable = false)
+    private String terreno;
 
-    public Planeta(){}
+    private Long numFilms;
 
-    public Planeta(Long id, String name, String clima, String terrano) {
-        Id = id;
-        Name = name;
-        Clima = clima;
-        Terrano = terrano;
+
+    public Planeta(){
+
+    }
+
+    public Planeta(Long id, String nome, String clima, String terreno, Long numFilms) {
+        this.id = id;
+        this.nome = nome;
+        this.clima = clima;
+        this.terreno = terreno;
+        this.numFilms = numFilms;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        this.Id = id;
+        this.id = id;
     }
 
-    public String getName() {
-        return Name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getClima() {
-        return Clima;
+        return clima;
     }
 
     public void setClima(String clima) {
-        Clima = clima;
+        this.clima = clima;
     }
 
-    public String getTerrano() {
-        return Terrano;
+    public String getTerreno() {
+        return terreno;
     }
 
-    public void setTerrano(String terrano) {
-        Terrano = terrano;
+    public void setTerreno(String terreno) {
+        this.terreno = terreno;
+    }
+
+    public Long getNumFilms() {
+        return numFilms;
+    }
+
+    public void setNumFilms(Long numFilms) {
+        this.numFilms = numFilms;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Planeta planeta = (Planeta) o;
+        return Objects.equals(id, planeta.id) && Objects.equals(nome, planeta.nome) && Objects.equals(clima, planeta.clima) && Objects.equals(terreno, planeta.terreno);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome, clima, terreno);
     }
 
     @Override
     public String toString() {
         return "Planeta{" +
-                "Id=" + Id +
-                ", Name='" + Name + '\'' +
-                ", Clima='" + Clima + '\'' +
-                ", Terrano='" + Terrano + '\'' +
+                "id=" + id +
+                ", name='" + nome + '\'' +
+                ", clima='" + clima + '\'' +
+                ", terreno='" + terreno + '\'' +
                 '}';
     }
 }
